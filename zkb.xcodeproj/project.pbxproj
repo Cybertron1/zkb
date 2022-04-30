@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25F762E2281999C8009EC54A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F762E1281999C8009EC54A /* ContentView.swift */; };
+		25F762E2281999C8009EC54A /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F762E1281999C8009EC54A /* RegistrationView.swift */; };
 		25F762E4281999C9009EC54A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F762E3281999C9009EC54A /* Assets.xcassets */; };
 		25F762E7281999C9009EC54A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F762E6281999C9009EC54A /* Preview Assets.xcassets */; };
 		25F762F1281999CA009EC54A /* zkbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F762F0281999CA009EC54A /* zkbTests.swift */; };
 		25F7630A28199A61009EC54A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F7630928199A61009EC54A /* AppDelegate.swift */; };
 		25F7630C28199A85009EC54A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F7630B28199A85009EC54A /* SceneDelegate.swift */; };
 		25F7630E28199C33009EC54A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25F7630D28199C33009EC54A /* LaunchScreen.storyboard */; };
+		25F76315281D5F08009EC54A /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F76314281D5F08009EC54A /* ConfirmationView.swift */; };
+		25F7631A281D6956009EC54A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F76319281D6956009EC54A /* Date+Extension.swift */; };
+		25F7631C281D6FC2009EC54A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F7631B281D6FC2009EC54A /* ContentView.swift */; };
+		25F7631E281D706D009EC54A /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F7631D281D706D009EC54A /* ContentViewModel.swift */; };
+		25F76323281DB8B4009EC54A /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F76322281DB8B4009EC54A /* UserDefaults+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		25F762DC281999C8009EC54A /* zkb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zkb.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		25F762E1281999C8009EC54A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		25F762E1281999C8009EC54A /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		25F762E3281999C9009EC54A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25F762E6281999C9009EC54A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		25F762EC281999CA009EC54A /* zkbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zkbTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +50,11 @@
 		25F7630B28199A85009EC54A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		25F7630D28199C33009EC54A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25F7630F28199C45009EC54A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		25F76314281D5F08009EC54A /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		25F76319281D6956009EC54A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		25F7631B281D6FC2009EC54A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		25F7631D281D706D009EC54A /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		25F76322281DB8B4009EC54A /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +104,8 @@
 		25F762DE281999C8009EC54A /* zkb */ = {
 			isa = PBXGroup;
 			children = (
-				25F7631328199CF2009EC54A /* Models */,
+				25F76318281D6947009EC54A /* Extensions */,
+				25F7631328199CF2009EC54A /* ViewModels */,
 				25F7631228199CEA009EC54A /* Support */,
 				25F7631128199CDB009EC54A /* Screens */,
 				25F7631028199CD5009EC54A /* CustomViews */,
@@ -130,7 +141,9 @@
 		25F7631128199CDB009EC54A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				25F762E1281999C8009EC54A /* ContentView.swift */,
+				25F762E1281999C8009EC54A /* RegistrationView.swift */,
+				25F76314281D5F08009EC54A /* ConfirmationView.swift */,
+				25F7631B281D6FC2009EC54A /* ContentView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -146,11 +159,21 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		25F7631328199CF2009EC54A /* Models */ = {
+		25F7631328199CF2009EC54A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				25F7631D281D706D009EC54A /* ContentViewModel.swift */,
 			);
-			path = Models;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		25F76318281D6947009EC54A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				25F76319281D6956009EC54A /* Date+Extension.swift */,
+				25F76322281DB8B4009EC54A /* UserDefaults+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +247,7 @@
 					};
 					25F762EB281999CA009EC54A = {
 						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
 						TestTargetID = 25F762DB281999C8009EC54A;
 					};
 					25F762F5281999CA009EC54A = {
@@ -284,9 +308,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F7631E281D706D009EC54A /* ContentViewModel.swift in Sources */,
+				25F76315281D5F08009EC54A /* ConfirmationView.swift in Sources */,
+				25F7631C281D6FC2009EC54A /* ContentView.swift in Sources */,
 				25F7630A28199A61009EC54A /* AppDelegate.swift in Sources */,
-				25F762E2281999C8009EC54A /* ContentView.swift in Sources */,
+				25F762E2281999C8009EC54A /* RegistrationView.swift in Sources */,
 				25F7630C28199A85009EC54A /* SceneDelegate.swift in Sources */,
+				25F76323281DB8B4009EC54A /* UserDefaults+Extension.swift in Sources */,
+				25F7631A281D6956009EC54A /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,15 +537,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9F6N6846R8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.mikaru.zkbTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/zkb.app/zkb";
@@ -528,11 +564,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9F6N6846R8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.mikaru.zkbTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
