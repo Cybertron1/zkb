@@ -1,36 +1,96 @@
-//
-//  zkbTests.swift
-//  zkbTests
-//
-//  Created by Mika on 27.04.22.
-//
-
 import XCTest
 @testable import zkb
 
-class zkbTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+class ZkbTests: XCTestCase {
+  private var userDefaults: UserDefaults!
+  private var viewModel: ContentView.ViewModel!
+  
+  override func setUp() {
+    userDefaults = UserDefaults(suiteName: #file)
+    userDefaults.removePersistentDomain(forName: #file)
+    
+    viewModel = ContentView.ViewModel(userDefaults)
+  }
+  
+  func testEmailValidation() {
+    viewModel.user.email = ""
+    viewModel.register()
+    XCTAssertTrue(viewModel.errors.email)
+    
+    viewModel.user.email = "test@test.c"
+    viewModel.register()
+    XCTAssertTrue(viewModel.errors.email)
+    
+    viewModel.user.email = "@test.c"
+    viewModel.register()
+    XCTAssertTrue(viewModel.errors.email)
+    
+    viewModel.user.email = "@test.ch"
+    viewModel.register()
+    XCTAssertTrue(viewModel.errors.email)
+    
+    viewModel.user.email = "test.ch"
+    viewModel.register()
+    XCTAssertTrue(viewModel.errors.email)
+    
+    viewModel.user.email = "test@test.ch"
+    viewModel.register()
+    XCTAssertFalse(viewModel.errors.email)
+  }
+  
+  func testNameValidation() {
+    viewModel.user.name = ""
+    viewModel.register()
+    XCTAssertTrue(viewModel.errors.name)
+    
+    viewModel.user.name = "M"
+    viewModel.register()
+    XCTAssertFalse(viewModel.errors.name)
+    
+    viewModel.user.name = "Mika"
+    viewModel.register()
+    XCTAssertFalse(viewModel.errors.name)
+  }
+  
+  func testAppState() {
+    XCTAssertEqual(viewModel.state, .notRegisterd)
+    
+    viewModel.user.email = "test@test.ch"
+    viewModel.user.name = "Mika"
+    // no need to set date since default date is today
+    
+    viewModel.register()
+    
+    XCTAssertEqual(viewModel.state, .registerd)
+  }
+  
+  func testRegisteredAppState() {
+    // fill the UserDefaults
+    viewModel.user.email = "test@test.ch"
+    viewModel.user.name = "Mika"
+    // no need to set date since default date is today
+    
+    viewModel.register()
+    
+    let vm = ContentView.ViewModel(userDefaults)
+    XCTAssertEqual(vm.state, .registerd)
+  }
+  
+  func testReset() {
+    viewModel.user.email = "test@test.ch"
+    viewModel.user.name = "Mika"
+    // no need to set date since default date is today
+    
+    viewModel.register()
+    XCTAssertNotNil(userDefaults.value(forKey: "user"))
+    
+    viewModel.reset()
+    XCTAssertNil(userDefaults.value(forKey: "user"))
+  }
+  
+  func testBirthdayFormatter() {
+    viewModel.user.date = Date("1998-01-01")
+    
+    XCTAssertEqual(viewModel.user.birthday(), "01.01.1998")
+  }
 }
